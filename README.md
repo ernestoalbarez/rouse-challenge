@@ -16,8 +16,8 @@ rouse-challenge/
 ├── tests/
 │   ├── test_api.py
 │   └── test_search.py
+├── config.py
 ├── locators.py
-├── testrunner.py
 ├── requirements.txt
 └── README.md
 ```
@@ -55,14 +55,27 @@ rouse-challenge/
 ## Running Tests
 You can run all tests using the following command:
 ```
-python run_tests.py
+pytest
 ```
 
 Alternatively, you can run individual test files:
 ```
-python -m unittest tests.test_search.py
-python -m unittest tests.test_api.py
+pytest tests/test_search.py
+pytest tests/test_api.py
 ```
+
+### Running Tests with Specific Options
+
+To run tests with detailed output, use the -v (verbose) flag:
+```
+pytest -v
+```
+
+To run a specific test within a test file:
+```
+pytest tests/test_search.py::test_search_android_results_contain_android
+```
+This will run just the `test_search_android_results_contain_android` from the `test_search.py` file.
 
 ## Test Cases
 
